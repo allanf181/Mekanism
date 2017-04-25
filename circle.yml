@@ -1,0 +1,13 @@
+machine:
+  java:
+    version: openjdk8
+    
+dependencies:
+  override:
+    - chmod +x gradlew
+    - ./gradlew setupCIWorkspace
+    
+compile:
+  override:
+    - ./gradlew fullBuild
+- mv ./output/* $CIRCLE_ARTIFACTS
